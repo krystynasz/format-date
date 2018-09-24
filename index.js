@@ -3,44 +3,26 @@ const formatDate = (timeInSeconds) => {
     const minutes = Math.floor((timeInSeconds - hours * 3600) / 60);
     const seconds = Math.round(timeInSeconds - hours * 3600 - minutes * 60);
 
-    var showHours;
+    var showTime = [];
 
-    if (hours == 0) {
-        showHours = '';
-    }
-    else if (minutes == 0 && seconds == 0) {
-        showHours = `${hours}h`
-    }
-    else {
-        showHours = `${hours}h `;
+    if (hours !== 0) {
+       showTime.push(`${hours}h`)
     }
 
-    var showMinutes;
-
-    if (minutes == 0) {
-        showMinutes = '';
+    if (minutes !== 0) {
+        showTime.push(`${minutes}m`);
     }
-    else if (seconds == 0) {
-        showMinutes = `${minutes}m`;
-    }
-    else {
-        showMinutes = `${minutes}m `;
-    };
 
-    var showSeconds;
-
-    if ((hours !== 0 || minutes !== 0) && seconds == 0) {
-        showSeconds = '';
-    }
-    else {
-        showSeconds = `${seconds}s`;
+    if (seconds !== 0) {
+        showTime.push(`${seconds}s`);
     };
 
     if (timeInSeconds == undefined) {
         return '0s';
     }
     else {
-        return showHours + showMinutes + showSeconds;
+        var result = showTime.join(' ');
+        return result;
     }
 }
 
