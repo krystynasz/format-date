@@ -3,7 +3,7 @@ const formatDate = (timeInSeconds) => {
     const minutes = Math.floor((timeInSeconds - hours * 3600) / 60);
     const seconds = Math.round(timeInSeconds - hours * 3600 - minutes * 60);
 
-    var showTime = [];
+    const showTime = [];
 
     if (hours !== 0) {
        showTime.push(`${hours}h`)
@@ -21,7 +21,7 @@ const formatDate = (timeInSeconds) => {
         return '0s';
     }
     else {
-        var result = showTime.join(' ');
+        const result = showTime.join(' ');
         return result;
     }
 }
